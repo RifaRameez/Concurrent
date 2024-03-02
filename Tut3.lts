@@ -1,0 +1,22 @@
+//3.1
+/**
+CHANGE = ( fivep -> (   onep -> onep -> onep -> onep -> onep -> STOP 
+			      | twop -> twop -> onep -> CHANGE )  ).
+
+CHANGE = ( fivep -> (   onep -> onep -> onep -> onep -> onep -> CHANGE 
+			      | twop -> twop -> onep -> STOP )  ).
+
+CHANGE = ( fivep -> (   onep -> onep -> onep -> onep -> onep -> STOP 
+			      | twop -> twop -> onep -> STOP )  ).
+
+//3.2
+DRINKS = (   red  -> coffee -> ( withmilk -> white -> (withusgar -> sugar -> DRINKS | withoutsugar -> DRINKS )
+                                | withoutmilk -> black -> (withusgar -> sugar-> DRINKS | withoutsugar -> DRINKS ) ) 
+           | blue -> tea    -> DRINKS
+           | brown -> hotchocolate -> DRINKS ) .
+**/
+
+//3.5
+CHANGE1 = ( fivep -> (   onep -> onep -> onep -> onep -> onep -> CHANGE1 
+			      | twop -> twop -> onep -> CHANGE1
+                  | onep -> onep -> onep -> twop -> CHANGE1 )  ).

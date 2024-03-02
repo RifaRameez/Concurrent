@@ -1,0 +1,33 @@
+/**
+MAXIMUM_SHEETS (N = 3 ) = (start -> PRINTER[N]),
+
+PRINTER[i : 0..N ] = ( when (i > 0 ) lock -> print -> unlock -> PRINTER[i-1] -> STOP
+                     | when (i ==0 ) refill -> PRINTER[3] -> STOP ) .
+
+DOCUMENTS ( N ) = ( start -> STUDENT[N] ),
+
+**/
+
+const MAX_SHEETS = 3
+
+set ACTIONS = { acquirePrinter, print, releasePrinter, acquireRefill, refill, releaseRefill}
+
+PRINTER = PRINTER[3],
+PRINTER[i:0..3] = if(i> 0) then
+                    (acquirePrinter -> print -> releasePrinter -> PRINTER[i-1])
+                  else
+                    (acquireRefill -> refill -> releaseRefill -> PRINTER[MAX_SHEETS]) + ACTIONS.
+
+STUDENT(COUNT = MAX_SHEETS) = STUDENT[COUNT], 
+STUDENT[i :0 ..COUNT ] = if (i> 0) then
+                    (acquirePrinter -> print -> releasePrinter -> STUDENT[i-1])
+                  else
+                    (terminate -> END) + ACTIONS. 
+
+TECHNICIAN = (acquireRefill -> refill -> releaseRefill -> TECHNICIAN) + ACTIONS.
+
+|| PRINTING_SYSTEM = (a:STUDENT(3) || b:STUDENT(2) || t:TECHNICIAN || {a,b,t} :: PRINTER).
+
+
+
+              

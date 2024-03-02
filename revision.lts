@@ -1,0 +1,16 @@
+/**
+TRACK = (acquireTrackC -> travelC -> releaseTrackC -> TRACK).
+EASTTRAIN = (trackA -> acquireTrackC -> travelC -> releaseTrackC -> trackD -> acquireTrackC -> travelC -> releaseTrackC ->EASTTRAIN ).
+WESTTRAIN = (trackE -> acquireTrackC -> travelC -> releaseTrackC -> trackB -> acquireTrackC -> travelC -> releaseTrackC ->WESTTRAIN ).
+
+||SYSTEM = (east:EASTTRAIN || west:WESTTRAIN || {east,west}::TRACK).
+
+**/
+
+set ACTION = {deposit, withdraw, acquireDeposit, releaseDeposit, acquireWithdraw, releaseWithdraw}
+BANK_ACCOUNT = (acquireWithdraw -> withdraw -> releaseWithdraw -> BANK_ACCOUNT |
+                acquireDeposit -> deposit -> releaseDeposit -> BANK_ACCOUNT ) .
+HUSBAND = ( acquireWithdraw -> withdraw -> releaseWithdraw -> HUSBAND ) + ACTION.
+WIFE = ( acquireDeposit -> deposit -> releaseDeposit -> WIFE ) + ACTION .
+
+||SYSTEM = (jim:HUSBAND || kate:WIFE || {jim,kate}::BANK_ACCOUNT) .

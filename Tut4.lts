@@ -1,0 +1,41 @@
+/**
+//4.2
+TOSS1 = (   toss -> heads -> TOSS1
+          | toss -> tails -> TOSS1
+        ).
+
+TOSS2 = (   toss -> (   heads -> TOSS2
+                      | tails -> TOSS2 )
+        ).
+//They are the same
+
+|| TOSS_12 = ( TOSS1 || TOSS2 ).
+//Both toss1 and toss2 get the same side of the coin
+
+|| TOSS_11 = ( TOSS1 || TOSS1 ).
+//This results in deadlock
+
+|| TOSS_22 = ( TOSS2 || TOSS2 ).
+//Toss 2 gets both the sides of the coin at teh same time
+
+|| TOSS_1111 = ( TOSS1 || TOSS1 || TOSS1 || TOSS1 ) .
+//This results in deadlock
+|| TOSS_2222 = ( TOSS2 || TOSS2 || TOSS2 || TOSS2 ) .
+//Toss 2 gets both the sides of the coin at teh same time 
+|| TOSS_1222 = ( TOSS1 || TOSS2 || TOSS2 || TOSS2 ) .
+//Both toss1 and 2 gets the same sided of the coin
+
+
+//4.3
+const MAXINT = 2
+range INT    = 0..MAXINT
+
+X = Y[ 0 ] ,
+
+Y[ i : INT ] =  (   a[ i ]      -> Y[ i ] 
+		  | b[j : INT ] -> Y[ j ] 
+		) .
+**/
+
+
+
