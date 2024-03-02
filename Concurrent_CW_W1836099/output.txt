@@ -1,0 +1,29 @@
+Ticket print was success. Ticket Details ==> PASS1 ==> Ticket{ticketNumber=1, passengerID='PASS1', destination='Colombo', time='9:00'}
+Cannot Print the ticket since the resources are not available : paper level ==> 0 toner level ==> 9
+Cannot Print the ticket since the resources are not available : paper level ==> 0 toner level ==> 9
+Cannot Print the ticket since the resources are not available : paper level ==> 0 toner level ==> 9
+Paper replacement success by Paper001  -> Paper Level: 5
+Toner replacement success by Toner001  -> Toner Level: 10
+Ticket print was success. Ticket Details ==> PASS2 ==> Ticket{ticketNumber=2, passengerID='PASS2', destination='Galle', time='13:00'}
+Ticket print was success. Ticket Details ==> PASS3 ==> Ticket{ticketNumber=3, passengerID='PASS3', destination='Kandy', time='15:00'}
+Ticket print was success. Ticket Details ==> PASS4 ==> Ticket{ticketNumber=4, passengerID='PASS4', destination='Matara', time='15:00'}
+Ticket print was success. Ticket Details ==> PASS2 ==> Ticket{ticketNumber=5, passengerID='PASS2', destination='Galle', time='13:00'}
+Toner replacement success by Toner001  -> Toner Level: 10
+Attempt to toner replacement failed by Toner001 since required level is available ==> Toner Level: 10
+Ticket print was success. Ticket Details ==> PASS1 ==> Ticket{ticketNumber=6, passengerID='PASS1', destination='Colombo', time='9:00'}
+Toner replacement success by Toner001  -> Toner Level: 10
+Cannot Print the ticket since the resources are not available : paper level ==> 0 toner level ==> 10
+Paper replacement success by Paper001  -> Paper Level: 5
+Ticket print was success. Ticket Details ==> PASS4 ==> Ticket{ticketNumber=7, passengerID='PASS4', destination='Matara', time='15:00'}
+Paper replacement success by Paper001  -> Paper Level: 9
+Toner Technician Toner001 finished all the replacement, cartridges used ==> 3
+Ticket print was success. Ticket Details ==> PASS2 ==> Ticket{ticketNumber=8, passengerID='PASS2', destination='Galle', time='13:00'}
+Ticket print was success. Ticket Details ==> PASS3 ==> Ticket{ticketNumber=9, passengerID='PASS3', destination='Kandy', time='15:00'}
+Ticket print was success. Ticket Details ==> PASS3 ==> Ticket{ticketNumber=10, passengerID='PASS3', destination='Kandy', time='15:00'}
+Ticket print was success. Ticket Details ==> PASS3 ==> Ticket{ticketNumber=11, passengerID='PASS3', destination='Kandy', time='15:00'}
+Ticket print was success. Ticket Details ==> PASS4 ==> Ticket{ticketNumber=12, passengerID='PASS4', destination='Matara', time='15:00'}
+Paper Technician Paper001 finished all the replacement, packs of paper used ==> 3
+Ticket print was success. Ticket Details ==> PASS4 ==> Ticket{ticketNumber=13, passengerID='PASS4', destination='Matara', time='15:00'}
+Ticket print was success. Ticket Details ==> PASS4 ==> Ticket{ticketNumber=14, passengerID='PASS4', destination='Matara', time='15:00'}
+
+Process finished with exit code 0

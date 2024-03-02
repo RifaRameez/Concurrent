@@ -1,0 +1,25 @@
+const MAX_SHEETS = 3
+range PAPER_RANGE = 0..MAX_SHEETS
+
+const MAX_TICKETS = 3
+range TONER_RANGE = 0..MAX_TICKETS
+
+set ACTIONS = {  acquireMachine, print, releaseMachine, acquireRefillPaper, refillPaper, releaseRefillPaper, 
+                acquireRefillToner, refillToner, releaseRefillToner}
+
+MACHINE = MACHINE[3][3],
+MACHINE[p:PAPER_RANGE][t:TONER_RANGE] = (when ( p * t > 0)  acquireMachine -> print -> releaseMachine -> MACHINE[p - 1][t-1] | 
+                                          when ( p == 0)	acquireRefillPaper -> refillPaper -> releaseRefillPaper -> MACHINE[MAX_SHEETS][t]|
+                                          when (t == 0) acquireRefillToner -> refillToner -> releaseRefillToner -> MACHINE[p][MAX_SHEETS]) + ACTIONS .
+
+PASSENGER(COUNT = 4) = PASSENGER[COUNT],
+PASSENGER[i:0..COUNT] =   if (i> 0) then
+                        (acquireMachine -> print -> releaseMachine -> PASSENGER[i-1])
+                        else
+                         (terminate -> END) + ACTIONS . 
+
+TICKET_TECHNICIAN = (acquireRefillPaper -> refillPaper -> releaseRefillPaper -> TICKET_TECHNICIAN | terminate -> END ) + ACTIONS.
+
+TONER_TECHNICIAN = (acquireRefillToner -> refillToner -> releaseRefillToner -> TONER_TECHNICIAN| terminate -> END) + ACTIONS.
+
+|| TICKET_SYSTEM = (a:PASSENGER(6) || b:TICKET_TECHNICIAN || c:TONER_TECHNICIAN || {a,b,c} :: MACHINE) / {terminate/ {a.terminate, b.terminate, c.terminate}}.
